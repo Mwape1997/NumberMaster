@@ -18,17 +18,17 @@ fun main(args: Array<String>) {
 }
 
 fun UI(){
-    val reader = Scanner(System.`in`)
+    val reader = Scanner(System.`in`)   //initialize a scanner object
     println("Enter one value at a time: ")
-    for (i in 0..3){
+    for (i in 0..3){                    //populate the array with inputs
         inputData= reader.nextInt()
 
-        if ((inputData <= 9) && !(isInArray())){
+        if ((inputData <= 9) && !(isInArray())){    //if input is valid, we add it to the array
             inputDataArray[i] = inputData
 
         }
 
-        else {
+        else {  //else cycle until you get a correct input
             valid = false
             print("Invalid input!")
             while(!(valid)){
@@ -41,7 +41,7 @@ fun UI(){
         }
     }
 
-    for (i in 0..3){
+    for (i in 0..3){    //print out the array elements
         println(inputDataArray[i])
     }
 
@@ -73,18 +73,18 @@ special chars dont show up in console so I have replaced them with :
     C : Number found but in correct place
     I : Number not found
 */
-    for (i in 0..3){
-            if(inputDataArray[i] == data[i]){
-                resultArray[i] = 'T'
+    for (i in 0..3){    //cycle through the arrays
+            if(inputDataArray[i] == data[i]){   //if the input is the same as the number to be guessed at the right spot
+                resultArray[i] = 'T'    //return a T
                 print(" T ")
 
             }
 
-            else{
-                val toFind = inputDataArray[i]
+            else{                           //else look if that number exists anywhere in the data array
+                val toFind = inputDataArray[i]  //look for the number
                 var found = false
 
-                for (n in data) {
+                for (n in data) {       //if you find it, put a C
                     if (n == toFind) {
                         found = true
                         break
@@ -96,7 +96,7 @@ special chars dont show up in console so I have replaced them with :
                     print(" C ")
                 }
 
-                else{
+                else{   //if not, put a I
                     resultArray[i] = 'I'
                     print(" I ")
                 }
